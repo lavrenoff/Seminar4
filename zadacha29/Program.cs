@@ -15,35 +15,48 @@ namespace Zadacha29
         static void Main(string[] args)
         {
             Console.Write("Введите число элементов: ");
-            int massivLength=Convert.ToInt32(Console.ReadLine());
+            int massivLength = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Введите минимальное значение числа: ");
-            int min=Convert.ToInt32(Console.ReadLine());
+            int min = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Введите максимальное значение числа: ");
-            int max=Convert.ToInt32(Console.ReadLine());
+            int max = Convert.ToInt32(Console.ReadLine());
 
-            if(min<max)
+            if (min < max)
             {
-            int[] numbers = new int [massivLength];
-            string str1="";
+                int[] numbers = new int[massivLength];
+                ZapolRandom(numbers, min, max);
+                Vivod(numbers);
+            }
+            else
+                Console.Write("Минимальное значение должно быть меньше максимального значения, исправьте пожалуйста!");
 
-            for(int i=0;i<massivLength;i++)
+
+
+        }
+
+        static void ZapolRandom(int[] massiv, int min, int max)
+        {
+            for (int i = 0; i < massiv.Length; i++)
             {
-                numbers[i]=new Random().Next(min,max);
-                if(i==massivLength-1)
-                   str1=str1+Convert.ToString(numbers[i]);
-                   else
-                   str1=str1+Convert.ToString(numbers[i])+", ";
+                massiv[i] = new Random().Next(min, max);
+            }
+        }
+
+        static void Vivod(int[] massiv)
+        {
+            string str1 = "";
+
+            for (int i = 0; i < massiv.Length; i++)
+            {
+                if (i == massiv.Length - 1)
+                    str1 = str1 + Convert.ToString(massiv[i]);
+                else
+                    str1 = str1 + Convert.ToString(massiv[i]) + ", ";
             }
 
             Console.Write($"{str1} -> [{str1}]");
-            }
-            else
-            Console.Write("Минимальное значение должно быть меньше максимального значения, исправьте пожалуйста!");
-
-
-
         }
     }
 }
