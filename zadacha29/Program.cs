@@ -8,7 +8,7 @@
 
 //6, 1, 33 -> [6, 1, 33]
 
-namespace Zadacha25
+namespace Zadacha29
 {
     class Program
     {
